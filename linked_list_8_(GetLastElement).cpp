@@ -33,17 +33,22 @@ class Node{
 				temp = temp->next;
 			}
 		}
-		int getFirstElement(Node* temp){  //Getting the first element of linked list
+		int getFirstElement(){  //Getting the first element of linked list
 			int x;
-			x = temp->data;
+			x = data;
 			return x;
 		}
 		int getLastElement(Node* temp){  //Getting the last element of linked list
 			int x;
-			while(temp->next!=NULL){
-				temp = temp->next;
+			if(temp->next==NULL){
+				x = temp->data;
 			}
-			x = temp->data;
+			else{	
+				while(temp->next!=NULL){
+					temp = temp->next;
+				}
+				x = temp->data;
+			}
 			return x;
 		}
 	
@@ -59,9 +64,10 @@ int main(){
 		temp = temp->getNext(); 
 	}
 	temp = head;
-	//cout<<temp->getFirstElement(temp)<<endl;
+	//cout<<temp->getFirstElement()<<endl;
 	cout<<temp->getLastElement(temp)<<endl;
-    //temp->traversal(head);
+	//temp->traversal(head);
+    
 
 	
 }
